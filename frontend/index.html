@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TaskFlow — Dashboard</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>⚡ TaskFlow</h1>
+      <p>Gerencie suas tarefas com eficiência</p>
+    </header>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="controls">
+      <input id="search" type="search" placeholder="Buscar tarefa..." />
+      <select id="filterStatus">
+        <option value="">Todos status</option>
+        <option value="todo">A fazer</option>
+        <option value="progress">Em progresso</option>
+        <option value="done">Concluído</option>
+      </select>
+      <select id="filterPriority">
+        <option value="">Todas prioridades</option>
+        <option value="high">Alta</option>
+        <option value="medium">Média</option>
+        <option value="low">Baixa</option>
+      </select>
+      <select id="sort">
+        <option value="">Ordem padrão</option>
+        <option value="newest">Mais recentes</option>
+        <option value="priority">Por prioridade</option>
+      </select>
+      <button id="btnNew" class="btn-primary">+ Nova Tarefa</button>
+    </section>
+
+    <section class="board" id="board"></section>
+
+    <div class="modal hidden" id="modal">
+      <div class="modal-card">
+        <h2 id="modalTitle">Nova Tarefa</h2>
+        <form id="taskForm">
+          <input type="hidden" id="taskId" />
+          <label>Título *</label>
+          <input id="fTitle" required maxlength="120" />
+          <label>Descrição</label>
+          <textarea id="fDesc" rows="3" maxlength="500"></textarea>
+          <label>Status</label>
+          <select id="fStatus">
+            <option value="todo">A fazer</option>
+            <option value="progress">Em progresso</option>
+            <option value="done">Concluído</option>
+          </select>
+          <label>Prioridade</label>
+          <select id="fPriority">
+            <option value="low">Baixa</option>
+            <option value="medium">Média</option>
+            <option value="high">Alta</option>
+          </select>
+          <div class="form-actions">
+            <button type="button" class="btn-ghost" id="btnCancel">Cancelar</button>
+            <button type="submit" class="btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
