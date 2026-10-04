@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: taskflow
-    runtime: node
-    buildCommand: npm install
-    startCommand: node backend/server.js
-    envVars:
-      - key: NODE_ENV
-        value: production
